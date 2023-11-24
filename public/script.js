@@ -42,6 +42,9 @@ async function checkWeather(city) {
       default:
         break;
     }
+  
+    document.querySelector(".weather").style.display = "block"
+
   } catch (error) {
     console.error('Error:', error.message);
     // Handle the error as needed

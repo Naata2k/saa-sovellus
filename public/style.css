@@ -80,6 +80,7 @@ h1{
 }
 
 .weather{
+    display: none;
     padding-top: 20px;
     width: 50%;
     margin: auto;
