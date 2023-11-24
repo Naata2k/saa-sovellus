@@ -1,3 +1,4 @@
+// Päivämäärän saanti
 var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
 var mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -9,9 +10,12 @@ const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icon");
 
+//apiUrl on serverin endpointin vastaus
+const apiUrl = "/weather"; 
+
 async function checkWeather(city) {
   try {
-    const response = await fetch(`/weather?city=${city}`);
+    const response = await fetch(`${apiUrl}?city=${city}`);
     const data = await response.json();
     
     document.querySelector(".city").innerHTML = data.name;
@@ -46,8 +50,7 @@ async function checkWeather(city) {
     document.querySelector(".weather").style.display = "block"
 
   } catch (error) {
-    console.error('Error:', error.message);
-    // Handle the error as needed
+    console.error(error);
   }
 }
 
